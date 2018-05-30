@@ -1,0 +1,14 @@
+<launch>
+
+    <!-- start uc_bridge for talking to the car and the kinect -->
+    <include file="$(find pses_ucbridge)/launch/uc_bridge.launch" />
+    <include file="$(find kinect2_bridge)/launch/kinect2_bridge_screen_off.launch" />
+    <node pkg="pses_odometry" name="pses_odometry" type="odometry_node">
+    </node>
+    <!-- runs the node that is responsible for driving -->
+    <node pkg="detect_obstacle" name="detect_obstacle_node" type="detect_obstacle_node" output="screen" >
+    </node>
+    <node pkg="wall_follow_obstacle" name="wall_follow_obstacle_node" type="wall_follow_obstacle_node" output="screen" >
+    </node>
+    
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- start uc_bridge for talking to the car and the kinect -->
+    <include file="$(find pses_ucbridge)/launch/uc_bridge.launch" />
+    <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch" />
+    
+    <!-- runs the node that is responsible for driving -->
+    <node pkg="lane_keeping" name="lane_keeping_node" type="lane_keeping_node.py">
+    </node>
+    
+</launch>
